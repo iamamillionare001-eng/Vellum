@@ -1,0 +1,75 @@
+# Frontend Architecture & UI Design Plan
+
+We will build the Vellum UI adhering to the strict component architecture and the "Midnight Executive" theme you requested, utilizing Tailwind CSS for rapid styling and responsiveness.
+
+## User Review Required
+
+> [!IMPORTANT]
+> Please review the file structure and Tailwind theme configuration. Once approved, I will proceed to generate and inject the components into your application.
+
+## 1. Setup Phase: Tailwind CSS Integration
+
+Since Tailwind was excluded in the initial scaffolding, the first step will be to install and configure it for the App Router.
+
+- **Dependencies**: Install `tailwindcss`, `postcss`, `autoprefixer`.
+- **Config**: Initialize `tailwind.config.ts` with custom colors for the "Midnight Executive" theme.
+- **Global Styles**: Update `src/app/globals.css` with the Tailwind directives.
+
+## 2. File Structure Map
+
+We will enforce a strict separation of concerns within `src/components/`.
+
+```text
+src/
+└── components/
+    ├── layout/
+    │   ├── DashboardLayout.tsx   (Responsive wrapper)
+    │   ├── Sidebar.tsx           (Desktop fixed left nav)
+    │   └── MobileNav.tsx         (Mobile/Tablet bottom bar)
+    ├── dashboard/
+    │   └── DashboardHome.tsx     (Assembles the main dashboard view)
+    └── ui/
+        ├── AnalyticsCard.tsx     (Glass-morphism stat block)
+        └── ActivityFeed.tsx      (Live AI interaction feed placeholder)
+```
+
+## 3. Theme Specification: "Midnight Executive"
+
+We will define these custom values in `tailwind.config.ts`:
+
+- **Obsidian Background**: `bg-obsidian` (`#0F0F13`)
+- **Electric Violet Accents**: `text-violet-accent` (`#7B2CBF`)
+- **Glass-morphism**: Built using utility combinations like `bg-white/5 backdrop-blur-lg border border-white/10`.
+
+## 4. Proposed Changes
+
+### Configuration
+#### [NEW] [tailwind.config.ts](file:///c:/Users/RockZ/Desktop/Vellum/tailwind.config.ts)
+#### [NEW] [postcss.config.mjs](file:///c:/Users/RockZ/Desktop/Vellum/postcss.config.mjs)
+#### [MODIFY] [globals.css](file:///c:/Users/RockZ/Desktop/Vellum/src/app/globals.css)
+
+### Layout Components
+#### [NEW] [DashboardLayout.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/layout/DashboardLayout.tsx)
+#### [NEW] [Sidebar.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/layout/Sidebar.tsx)
+#### [NEW] [MobileNav.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/layout/MobileNav.tsx)
+
+### UI Components
+#### [NEW] [AnalyticsCard.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/ui/AnalyticsCard.tsx)
+#### [NEW] [ActivityFeed.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/ui/ActivityFeed.tsx)
+
+### Dashboard Content
+#### [NEW] [DashboardHome.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/components/dashboard/DashboardHome.tsx)
+
+### Application Routes
+#### [MODIFY] [layout.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/app/(dashboard)/dashboard/layout.tsx)
+Integrates the new `DashboardLayout`.
+
+#### [MODIFY] [page.tsx](file:///c:/Users/RockZ/Desktop/Vellum/src/app/(dashboard)/dashboard/page.tsx)
+Replaces existing boilerplate with the new `DashboardHome` component.
+
+## Verification Plan
+
+- Install dependencies using `npm install -D tailwindcss postcss autoprefixer`.
+- Start the development server (`npm run dev`).
+- Resize the browser window to verify the layout gracefully transitions from the desktop Sidebar to the MobileNav.
+- Inspect the visual elements to ensure the Obsidian and Electric Violet colors apply correctly, and the glass-morphism effects render as intended.
