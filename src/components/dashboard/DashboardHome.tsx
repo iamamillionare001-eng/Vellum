@@ -6,7 +6,7 @@ export default function DashboardHome() {
     <div className="p-6 md:p-10 min-h-screen">
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Welcome Back</h1>
-        <p className="text-gray-400">Here's what's happening with your platform today.</p>
+        <p className="text-gray-400">Here&apos;s what&apos;s happening with your platform today.</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">

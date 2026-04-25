@@ -44,7 +44,7 @@ export async function POST(req: Request) {
       }
     });
 
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to process webhook' },
       { status: 500 }
