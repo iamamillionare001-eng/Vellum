@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Zap } from "lucide-react";
 
 export default function Sidebar() {
   return (
@@ -11,6 +12,10 @@ export default function Sidebar() {
       <nav className="flex-1 space-y-4">
         <Link href="/dashboard" className="block px-4 py-2 rounded-md bg-violet-accent/20 text-violet-accent font-medium transition-colors">
           Overview
+        </Link>
+        <Link href="/dashboard/triggers" className="flex items-center gap-2 px-4 py-2 rounded-md text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+          <Zap className="w-4 h-4" />
+          Triggers
         </Link>
         <Link href="/dashboard/analytics" className="block px-4 py-2 rounded-md text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
           Analytics
